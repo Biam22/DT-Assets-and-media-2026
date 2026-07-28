@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://buj0bp3w53j5v"]
+
+[ext_resource type="Script" uid="uid://dgvg36kxi1imx" path="res://dirt_cube.gd" id="1_jtjg4"]
+[ext_resource type="Texture2D" uid="uid://c7v2xgiu62e72" path="res://Sprites/Dirtgrow1t.png" id="2_jtjg4"]
+[ext_resource type="Texture2D" uid="uid://dn8i6nvwwgylk" path="res://Sprites/Dirtgrowth2.png" id="3_ugdo7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82wsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jtjg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ugdo7")
+}],
+"loop": 1,
+"name": &"Growth",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44xa5"]
+size = Vector2(49.5, 49.5)
+
+[node name="Dirt plant" type="Node2D" unique_id=1943209231]
+
+[node name="Dirt cube" type="Area2D" parent="." unique_id=747339565]
+position = Vector2(285, 334)
+scale = Vector2(4, 4)
+script = ExtResource("1_jtjg4")
+
+[node name="Dirt" type="AnimatedSprite2D" parent="Dirt cube" unique_id=355188871]
+z_index = -1
+position = Vector2(-71, -83.5)
+sprite_frames = SubResource("SpriteFrames_82wsy")
+animation = &"Growth"
+
+[node name="Collisiondirt" type="CollisionShape2D" parent="Dirt cube" unique_id=1683852538]
+position = Vector2(-71.25, -83.75)
+shape = SubResource("RectangleShape2D_44xa5")
+
+[connection signal="input_event" from="Dirt cube" to="Dirt cube" method="_on_input_event"]

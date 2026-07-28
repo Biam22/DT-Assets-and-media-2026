@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d1on2f32i8wln"]
+
+[ext_resource type="Script" uid="uid://druw4tx5alsxv" path="res://farm.gd" id="1_prwad"]
+[ext_resource type="PackedScene" uid="uid://buj0bp3w53j5v" path="res://Tscns/dirt_plant.tscn" id="2_ewiot"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vkr66"]
+load_path = "res://.godot/imported/Grass.png-ff92a3c9a7a270cd183ab32eca376733.ctex"
+
+[node name="Farm" type="Node2D" unique_id=1079947741]
+script = ExtResource("1_prwad")
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=920141813]
+z_index = -2
+position = Vector2(619, 388)
+scale = Vector2(5.013, 3.4)
+texture = SubResource("CompressedTexture2D_vkr66")
+
+[node name="Plants" type="Node" parent="." unique_id=1362520664]
+
+[node name="Dirt plant" parent="Plants" unique_id=1943209231 instance=ExtResource("2_ewiot")]
+position = Vector2(127, 112)
+
+[node name="Dirt plant2" parent="Plants" unique_id=913612474 instance=ExtResource("2_ewiot")]
+position = Vector2(331, 111)
+
+[node name="Dirt plant3" parent="Plants" unique_id=2124319595 instance=ExtResource("2_ewiot")]
+position = Vector2(538, 111)
+
+[node name="Dirt plant4" parent="Plants" unique_id=1538901305 instance=ExtResource("2_ewiot")]
+position = Vector2(745, 109)
