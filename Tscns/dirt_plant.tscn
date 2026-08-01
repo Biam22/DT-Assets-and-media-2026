@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dgvg36kxi1imx" path="res://dirt_cube.gd" id="1_jtjg4"]
 [ext_resource type="Texture2D" uid="uid://c7v2xgiu62e72" path="res://Sprites/Dirtgrow1t.png" id="2_jtjg4"]
+[ext_resource type="Texture2D" uid="uid://cjhbep461yf5t" path="res://Sprites/Dirtgrowt0.5.png" id="2_ugdo7"]
 [ext_resource type="Texture2D" uid="uid://dn8i6nvwwgylk" path="res://Sprites/Dirtgrowth2.png" id="3_ugdo7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82wsy"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ugdo7")
+}, {
 "duration": 1.0,
 "texture": ExtResource("2_jtjg4")
 }, {
