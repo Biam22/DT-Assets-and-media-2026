@@ -17,7 +17,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		Soil_prep = true
 		print("Prepping soil!!")
 		$Dirt.frame = 1
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.1).timeout
 		has_grown = true
 		
 		
