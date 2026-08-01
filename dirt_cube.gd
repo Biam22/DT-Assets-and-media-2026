@@ -20,8 +20,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		await get_tree().create_timer(0.1).timeout
 		has_grown = true
 		
-		
-		
 	elif has_grown:
 		print("Plant!")
 		$Dirt.frame = 2
