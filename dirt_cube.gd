@@ -1,6 +1,8 @@
 extends Area2D
 
+
 var has_grown: bool = false
+var Soil_prep: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -8,15 +10,23 @@ func _ready() -> void:
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
+	if not Input.is_action_pressed("Left_Click"):
+		return 
+		
+	if not Soil_prep:
+		Soil_prep = true
+		print("Prepping soil!!")
+		$Dirt.frame = 1
+		await get_tree().create_timer(0.5).timeout
+		has_grown = true
+		
+		
+		
+	elif has_grown:
+		print("Plant!")
+		$Dirt.frame = 2
 	
-	
-	if Input.is_action_pressed("Left_Click"):
-		if has_grown:
-			return
-		has_grown = true 
-		print("Plant!!")
-		$Dirt.play("Growth")
-		await get_tree().create_timer(0.3).timeout
-		$Dirt.pause()
+		
+		
 		
 		
