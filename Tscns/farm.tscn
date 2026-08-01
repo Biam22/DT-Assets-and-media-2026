@@ -27,4 +27,4 @@ position = Vector2(331, 111)
 position = Vector2(538, 111)
 
 [node name="Dirt plant4" parent="Plants" unique_id=1538901305 instance=ExtResource("2_ewiot")]
-position = Vector2(745, 109)
+position = Vector2(750, 111)
