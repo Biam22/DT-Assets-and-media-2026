@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cjhbep461yf5t" path="res://Sprites/Dirtgrowt0.5.png" id="2_ugdo7"]
 [ext_resource type="Texture2D" uid="uid://dn8i6nvwwgylk" path="res://Sprites/Dirtgrowth2.png" id="3_ugdo7"]
 [ext_resource type="Texture2D" uid="uid://bc43f1bufu6a0" path="res://Sprites/Dirtgrowth3.png" id="5_3vr5m"]
+[ext_resource type="Texture2D" uid="uid://cxep1idfgoant" path="res://Sprites/Dirtgrowth4.png" id="6_3k6gm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82wsy"]
 animations = [{
@@ -20,6 +21,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_3vr5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3k6gm")
 }],
 "loop": 1,
 "name": &"Growth",
