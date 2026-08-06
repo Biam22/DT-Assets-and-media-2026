@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7v2xgiu62e72"
-path="res://.godot/imported/Dirtgrow1t.png-cf4ea2d01689ba793e917e9aa6f21b78.ctex"
+uid="uid://bvo6h4wairuxx"
+path="res://.godot/imported/Grass tiles resized.png-3ec7babfda8a01ecbe138ffc2cb21a01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Dirtgrow1t.png"
-dest_files=["res://.godot/imported/Dirtgrow1t.png-cf4ea2d01689ba793e917e9aa6f21b78.ctex"]
+source_file="res://Sprites/Plant_sprites/Grass tiles resized.png"
+dest_files=["res://.godot/imported/Grass tiles resized.png-3ec7babfda8a01ecbe138ffc2cb21a01.ctex"]
 
 [params]
 

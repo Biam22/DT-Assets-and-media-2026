@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxep1idfgoant"
-path="res://.godot/imported/Dirtgrowth4.png-b591e81c877dbd37bc5e63184aa18d93.ctex"
+uid="uid://c7v2xgiu62e72"
+path="res://.godot/imported/Dirtgrow1t.png-b53536a319e52e44796b6054cc483aee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Dirtgrowth4.png"
-dest_files=["res://.godot/imported/Dirtgrowth4.png-b591e81c877dbd37bc5e63184aa18d93.ctex"]
+source_file="res://Sprites/Plant_sprites/Dirtgrow1t.png"
+dest_files=["res://.godot/imported/Dirtgrow1t.png-b53536a319e52e44796b6054cc483aee.ctex"]
 
 [params]
 

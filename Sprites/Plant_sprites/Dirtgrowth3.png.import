@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc43f1bufu6a0"
-path="res://.godot/imported/Dirtgrowth3.png-376de7693578207702dbbcd0ea89cbff.ctex"
+path="res://.godot/imported/Dirtgrowth3.png-0fc196acaa93b65192f1dfb408ae13b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Dirtgrowth3.png"
-dest_files=["res://.godot/imported/Dirtgrowth3.png-376de7693578207702dbbcd0ea89cbff.ctex"]
+source_file="res://Sprites/Plant_sprites/Dirtgrowth3.png"
+dest_files=["res://.godot/imported/Dirtgrowth3.png-0fc196acaa93b65192f1dfb408ae13b2.ctex"]
 
 [params]
 
