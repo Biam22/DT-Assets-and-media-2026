@@ -6,7 +6,7 @@ var Soil_prep: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	growth_bar.visible = false 
-
+	
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
