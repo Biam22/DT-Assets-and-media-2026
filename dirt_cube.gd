@@ -1,5 +1,5 @@
 extends Area2D
-
+@onready var growth_bar: TextureProgressBar = $UI_Bar/UI_growth
 
 var has_grown: bool = false
 var Soil_prep: bool = false
@@ -25,15 +25,32 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		print("Plant!")
 		$Dirt.frame = 2
 		Growth_timer()
+		
 	
 func Growth_timer() -> void:
-	await get_tree().create_timer(5).timeout
+	await Growth_bar(5.0)
 	print("Growing stage1")
 	$Dirt.frame = 3
-	await get_tree().create_timer(8).timeout
+	await  Growth_bar(8.0)
 	print("Growing stage2")
 	$Dirt.frame = 4
 	return
+	
+func Growth_bar(duration: float) -> void: 
+	growth_bar.value = 0 
+	growth_bar.visible = true 
+	
+	var tween = create_tween()
+	tween.tween_method(_update_bar, 0.0, 1.0, duration)
+	await tween.finished
+	
+	growth_bar.visible = false 
+	
+func _update_bar(progress: float) -> void:
+	growth_bar.value = progress * growth_bar.max_value
+
+	
+	
 	
 	
 		
