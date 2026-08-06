@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://m8urick6hfcb"]
+
+[ext_resource type="Texture2D" uid="uid://cge16pnxdaq55" path="res://Sprites/UI/Plantbarempty.png" id="1_05xq2"]
+[ext_resource type="Texture2D" uid="uid://b0ji6p07hgdxn" path="res://Sprites/UI/Plantbar.png" id="2_027qp"]
+
+[node name="UI_Bar" type="Node2D" unique_id=557015015]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=552211114]
+offset_top = 1.0
+offset_right = 160.0
+offset_bottom = 101.0
+texture_under = ExtResource("1_05xq2")
+texture_progress = ExtResource("2_027qp")
