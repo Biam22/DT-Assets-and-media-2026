@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bc43f1bufu6a0" path="res://Sprites/Plant_sprites/Dirtgrowth3.png" id="5_3vr5m"]
 [ext_resource type="Texture2D" uid="uid://cxep1idfgoant" path="res://Sprites/Plant_sprites/Dirtgrowth4.png" id="6_3k6gm"]
 [ext_resource type="PackedScene" uid="uid://m8urick6hfcb" path="res://Tscns/UI_bar.tscn" id="7_kwsh5"]
+[ext_resource type="Texture2D" uid="uid://dy7qd36j5jrq2" path="res://Sprites/UI/Done!.png" id="8_77to8"]
+[ext_resource type="Script" uid="uid://chh1nvhythtr6" path="res://Tscns/ui_tick.gd" id="9_73vyo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82wsy"]
 animations = [{
@@ -34,7 +36,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44xa5"]
 size = Vector2(49.5, 49.5)
 
-[node name="Dirt plant" type="Node2D" unique_id=1943209231]
+[node name="Plant_process" type="Node2D" unique_id=1943209231]
 
 [node name="Dirt cube" type="Area2D" parent="." unique_id=747339565]
 scale = Vector2(4, 4)
@@ -46,11 +48,17 @@ sprite_frames = SubResource("SpriteFrames_82wsy")
 animation = &"Growth"
 
 [node name="Collisiondirt" type="CollisionShape2D" parent="Dirt cube" unique_id=1683852538]
-position = Vector2(0.25, 0)
 shape = SubResource("RectangleShape2D_44xa5")
 
 [node name="UI_Bar" parent="Dirt cube" unique_id=557015015 instance=ExtResource("7_kwsh5")]
-position = Vector2(-16.75, -42)
+position = Vector2(0, -35.499996)
 scale = Vector2(0.2, 0.2)
+
+[node name="UI_Tick" type="Sprite2D" parent="Dirt cube" unique_id=386127087]
+visible = false
+position = Vector2(0, -50)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_77to8")
+script = ExtResource("9_73vyo")
 
 [connection signal="input_event" from="Dirt cube" to="Dirt cube" method="_on_input_event"]
