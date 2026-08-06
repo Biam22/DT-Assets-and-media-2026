@@ -5,7 +5,7 @@ var has_grown: bool = false
 var Soil_prep: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	growth_bar.visible = false 
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -34,6 +34,7 @@ func Growth_timer() -> void:
 	await  Growth_bar(8.0)
 	print("Growing stage2")
 	$Dirt.frame = 4
+	$UI_Tick.visible = true 
 	return
 	
 func Growth_bar(duration: float) -> void: 
@@ -46,10 +47,9 @@ func Growth_bar(duration: float) -> void:
 	
 	growth_bar.visible = false 
 	
+	
 func _update_bar(progress: float) -> void:
 	growth_bar.value = progress * growth_bar.max_value
-
-	
 	
 	
 	
