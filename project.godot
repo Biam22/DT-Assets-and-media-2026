@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Digital Outcome 2026"
-run/main_scene="uid://d1on2f32i8wln"
+run/main_scene="uid://itha0mukkqwx"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [display]
