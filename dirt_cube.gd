@@ -3,6 +3,7 @@ extends Area2D
 
 var has_grown: bool = false
 var Soil_prep: bool = false
+var is_growing: bool = false 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	growth_bar.visible = false 
@@ -21,7 +22,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		has_grown = true
 		return
 		
-	elif has_grown:
+	elif has_grown and not is_growing:
+		is_growing = true
 		print("Plant!")
 		$Dirt.frame = 2
 		Growth_timer()
