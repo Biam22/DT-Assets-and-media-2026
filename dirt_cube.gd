@@ -9,7 +9,15 @@ var is_growing: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	growth_bar.visible = false 
+	water_bar.visible = false
 	
+func _toggle_watering() -> void:		
+	if Input.is_action_just_pressed("Toggle_watering"):
+		print("toggle water")
+	
+
+
+
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
@@ -29,8 +37,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		print("Plant!")
 		$Dirt.frame = 2
 		
-	if Input.is_action_just_pressed("F"):
-		print("F")
 		
 	
 func Growth_timer() -> void:
