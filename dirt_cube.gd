@@ -1,9 +1,11 @@
 extends Area2D
 @onready var growth_bar: TextureProgressBar = $UI_Bar/UI_growth
+@onready var water_bar:TextureProgressBar = $UI_Bar/UI_water
 
 var has_grown: bool = false
-var Soil_prep: bool = false
+var Soil_ready: bool = false
 var is_growing: bool = false 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	growth_bar.visible = false 
@@ -14,8 +16,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if not Input.is_action_pressed("Left_Click"):
 		return 
 		
-	if not Soil_prep:
-		Soil_prep = true
+	if not Soil_ready:
+		Soil_ready = true
 		print("Prepping soil!!")
 		$Dirt.frame = 1
 		await get_tree().create_timer(0.1).timeout
@@ -26,7 +28,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		is_growing = true
 		print("Plant!")
 		$Dirt.frame = 2
-		Growth_timer()
+		
+	if Input.is_action_just_pressed("F"):
+		print("F")
 		
 	
 func Growth_timer() -> void:
