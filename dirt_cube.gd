@@ -11,6 +11,7 @@ func _ready() -> void:
 	growth_bar.visible = false 
 	water_bar.visible = false
 	
+	
 func _toggle_watering() -> void:		
 	if Input.is_action_just_pressed("Toggle_watering"):
 		print("toggle water")
@@ -36,6 +37,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		is_growing = true
 		print("Plant!")
 		$Dirt.frame = 2
+		Growth_timer()
 		
 		
 	
