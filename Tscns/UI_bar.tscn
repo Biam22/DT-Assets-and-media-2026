@@ -3,8 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cge16pnxdaq55" path="res://Sprites/UI/Plantbarempty.png" id="1_05xq2"]
 [ext_resource type="Texture2D" uid="uid://b0ji6p07hgdxn" path="res://Sprites/UI/Plantbar.png" id="2_027qp"]
 [ext_resource type="Script" uid="uid://dmuwjrdrr3mf6" path="res://Tscns/ui_growth.gd" id="3_027qp"]
-[ext_resource type="Texture2D" uid="uid://bp5egocm6yrdq" path="res://Sprites/UI/Waterbarempty.png" id="4_lurto"]
-[ext_resource type="Texture2D" uid="uid://jx6lrbmw8fkt" path="res://Sprites/UI/Waterbar.png" id="5_e0xud"]
 
 [node name="UI_Bar" type="Node2D" unique_id=557015015]
 
@@ -16,11 +14,3 @@ offset_bottom = 80.0
 texture_under = ExtResource("1_05xq2")
 texture_progress = ExtResource("2_027qp")
 script = ExtResource("3_027qp")
-
-[node name="UI_water" type="TextureProgressBar" parent="." unique_id=278552709]
-offset_left = -79.0
-offset_top = 336.0
-offset_right = 81.0
-offset_bottom = 436.0
-texture_under = ExtResource("4_lurto")
-texture_progress = ExtResource("5_e0xud")

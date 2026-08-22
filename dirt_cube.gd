@@ -9,7 +9,7 @@ var is_growing: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	growth_bar.visible = false 
-	water_bar.visible = false
+	
 	
 	
 func _toggle_watering() -> void:		
