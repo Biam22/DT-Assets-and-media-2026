@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bkbl6knoxaf5x"]
+
+[ext_resource type="Script" uid="uid://c1oxx154rkife" path="res://h_box_container.gd" id="1_ciswu"]
+[ext_resource type="Texture2D" uid="uid://c2tx8ki7im2yl" path="res://Sprites/UI/Planticon.png" id="2_6x3wn"]
+[ext_resource type="FontFile" uid="uid://tm07bonf68ku" path="res://Daydream DEMO.otf" id="3_6x3wn"]
+
+[node name="UI_counter" type="Control" unique_id=1795615604]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1167132612]
+layout_mode = 0
+offset_right = 130.0
+offset_bottom = 100.0
+
+[node name="Boxcontainer" type="HBoxContainer" parent="PanelContainer" unique_id=946786611]
+layout_mode = 2
+script = ExtResource("1_ciswu")
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/Boxcontainer" unique_id=765627001]
+layout_mode = 2
+texture = ExtResource("2_6x3wn")
+
+[node name="Counting" type="Label" parent="PanelContainer/Boxcontainer" unique_id=1149042859]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_6x3wn")
+text = "0"

@@ -14,11 +14,16 @@ config/name="Digital Outcome 2026"
 run/main_scene="uid://itha0mukkqwx"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[autoload]
+
+TutorialUI="*uid://cexj8htfsobto"
+HarvestCounter="*uid://dfmvrot1uxs1o"
+
 [display]
 
 window/size/viewport_width=1200
 window/size/viewport_height=800
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [input]

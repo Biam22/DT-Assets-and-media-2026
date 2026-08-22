@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://itha0mukkqwx"]
 
 [ext_resource type="Script" uid="uid://t7ldlaq18amh" path="res://Tscns/button.gd" id="1_jnast"]
+[ext_resource type="Script" uid="uid://bq4f08a5aj0po" path="res://Tscns/tut_button_2.gd" id="2_p3qtn"]
 
 [node name="Title screen" type="Control" unique_id=944425554]
 layout_mode = 3
@@ -10,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="." unique_id=1421205578]
+[node name="Play_button" type="Button" parent="." unique_id=1421205578]
 z_index = 3
 layout_mode = 0
 offset_left = 449.0
@@ -22,4 +23,17 @@ theme_override_font_sizes/font_size = 90
 text = "Play"
 script = ExtResource("1_jnast")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="Tut_button2" type="Button" parent="." unique_id=855672575]
+z_index = 3
+layout_mode = 0
+offset_left = 410.0
+offset_top = 490.0
+offset_right = 818.0
+offset_bottom = 622.0
+theme_override_colors/font_color = Color(0.32979572, 0.98536116, 0.9702032, 1)
+theme_override_font_sizes/font_size = 70
+text = "How to play"
+script = ExtResource("2_p3qtn")
+
+[connection signal="pressed" from="Play_button" to="Play_button" method="_on_pressed"]
+[connection signal="pressed" from="Tut_button2" to="Tut_button2" method="_on_pressed"]

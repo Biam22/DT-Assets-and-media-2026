@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cexj8htfsobto"]
+
+[ext_resource type="Script" uid="uid://di6c7b3roo5js" path="res://tut_ui.gd" id="1_k22y2"]
+
+[node name="Control" type="Control" unique_id=1589763243]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k22y2")
+
+[node name="Blocker" type="Control" parent="." unique_id=1802245460]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Next" type="Button" parent="Blocker" unique_id=911212168]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 620.0
+offset_right = 640.0
+offset_bottom = 685.0
+theme_override_colors/font_color = Color(0.5840416, 0.9894269, 0.5607424, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+text = "Next!
+"
+
+[node name="Info_Box" type="PanelContainer" parent="Blocker" unique_id=1089111972]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.001
+offset_left = 493.0
+offset_top = 28.0
+offset_right = 667.0
+offset_bottom = 76.2
+
+[node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box" unique_id=173690685]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Blocker/Info_Box/MarginContainer" unique_id=1203976123]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Welcome! "
+
+[node name="Info_Box2" type="PanelContainer" parent="Blocker" unique_id=2089953882]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 506.0
+offset_right = 951.0
+offset_bottom = 555.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box2" unique_id=1108344252]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Blocker/Info_Box2/MarginContainer" unique_id=2004419810]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "To play start by clicking on a patch of dirt."
+
+[node name="Info_Box3" type="PanelContainer" parent="Blocker" unique_id=535962818]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 506.0
+offset_right = 1098.0
+offset_bottom = 555.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box3" unique_id=554659746]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Blocker/Info_Box3/MarginContainer" unique_id=520459712]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Click again to plant the seed and plant will start growing"
+
+[node name="Info_Box4" type="PanelContainer" parent="Blocker" unique_id=603432275]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 506.0
+offset_right = 942.0
+offset_bottom = 555.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box4" unique_id=802633723]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Blocker/Info_Box4/MarginContainer" unique_id=322818850]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "The plant is now ready to harvest (By Clicking) "
+
+[node name="Info_Box5" type="PanelContainer" parent="Blocker" unique_id=40936512]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 350.0
+offset_right = 918.0
+offset_bottom = 399.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box5" unique_id=608712140]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Blocker/Info_Box5/MarginContainer" unique_id=1238905958]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Well done your now a expert at this! "

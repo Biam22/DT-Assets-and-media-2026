@@ -1,6 +1,6 @@
 extends Area2D
 @onready var growth_bar: TextureProgressBar = $UI_Bar/UI_growth
-@onready var water_bar:TextureProgressBar = $UI_Bar/UI_water
+
 
 var has_grown: bool = false
 var Soil_ready: bool = false
@@ -11,12 +11,11 @@ var is_ready_to_harvest: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	growth_bar.visible = false 
-	TutorialUI.show_step(0) 
 
 func _pop_tween() -> void:
 	var tween = create_tween()
-	tween.tween_property($Dirt , "scale", Vector2(1.2, 1.2), 0.1)
-	tween.tween_property($Dirt , "scale", Vector2(1, 1), 0.1)
+	tween.tween_property($DirtMain , "scale", Vector2(1.2, 1.2), 0.1)
+	tween.tween_property($DirtMain , "scale", Vector2(1, 1), 0.1)
 	await tween.finished
 	
 
@@ -28,9 +27,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if not Soil_ready:
 		Soil_ready = true
 		print("Prepping soil!!")
-		$Dirt.frame = 1
+		$DirtMain.frame = 1
 		_pop_tween()
-		TutorialUI.show_step(2)
 		await get_tree().create_timer(0.1).timeout
 		has_grown = true
 		return
@@ -38,7 +36,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	elif has_grown and not is_growing and not is_ready_to_harvest:
 		is_growing = true
 		print("Plant!")
-		$Dirt.frame = 2
+		$DirtMain.frame = 2
 		_pop_tween()
 		await get_tree().create_timer(0.1).timeout
 		Growth_timer()
@@ -52,12 +50,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 func Growth_timer() -> void:
 	await Growth_bar(5.0)
 	print("Growing stage1")
-	$Dirt.frame = 3
+	$DirtMain.frame = 3
 	await  Growth_bar(8.0)
 	print("Growing stage2")
-	$Dirt.frame = 4
-	TutorialUI.show_step(3)
-	$UI_Tick.visible = true 
+	$DirtMain.frame = 4
+	$Tickmain.visible = true 
 	is_ready_to_harvest = true
 	return
 	
@@ -69,12 +66,11 @@ func _harvest() -> void:
 	print("Harvested!")
 	var tween_done = create_tween()
 	tween_done.set_parallel(true)
-	tween_done.tween_property($Dirt, "scale", Vector2(1.3, 1.3), 0.15)
-	tween_done.tween_property($Dirt, "modulate:a", 0.0, 0.2)
+	tween_done.tween_property($DirtMain, "scale", Vector2(1.3, 1.3), 0.15)
+	tween_done.tween_property($DirtMain, "modulate:a", 0.0, 0.2)
 	await tween_done.finished
 	
 	HarvestCounter.add_harvest()
-	TutorialUI.show_step(4)
 	return
 	
 func Growth_bar(duration: float) -> void: 

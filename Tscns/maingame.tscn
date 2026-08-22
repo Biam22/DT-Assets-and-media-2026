@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c4t5o04gwy7ko"]
+
+[ext_resource type="Texture2D" uid="uid://bkrh3yqobtoh" path="res://Sprites/Plant_sprites/Grass.png" id="1_2sw64"]
+
+[node name="Maingame" type="Node2D" unique_id=798757891]
+
+[node name="Plants" type="Node" parent="." unique_id=22072208]
+
+[node name="Grass" type="Sprite2D" parent="Plants" unique_id=1225006910]
+position = Vector2(604, 394.91345)
+scale = Vector2(4.703125, 3.1725516)
+texture = ExtResource("1_2sw64")
