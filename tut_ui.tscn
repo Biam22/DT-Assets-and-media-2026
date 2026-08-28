@@ -4,6 +4,7 @@
 
 [node name="Control" type="Control" unique_id=1589763243]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -12,6 +13,7 @@ script = ExtResource("1_k22y2")
 
 [node name="Blocker" type="Control" parent="." unique_id=1802245460]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -104,4 +106,4 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Blocker/Info_Box5/MarginContainer" unique_id=1238905958]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Well done your now a expert at this! "
+text = "Well done your now a expert at this!"

@@ -9,15 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://cxep1idfgoant" path="res://Sprites/Plant_sprites/Dirtgrowth4.png" id="7_ll7d1"]
 [ext_resource type="PackedScene" uid="uid://m8urick6hfcb" path="res://Tscns/UI_bar.tscn" id="8_i7v8s"]
 [ext_resource type="Script" uid="uid://bhlbksy0l6sh5" path="res://Tscns/tickmain.gd" id="9_355gj"]
+[ext_resource type="Texture2D" uid="uid://dy7qd36j5jrq2" path="res://Sprites/UI/Done!.png" id="9_mn5yh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_bhuff")
+"texture": ExtResource("3_oto0s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_oto0s")
+"texture": ExtResource("4_bhuff")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_vp1vi")
@@ -33,6 +34,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkl5x"]
+size = Vector2(50, 50)
+
 [node name="Plant_processmain" type="Node2D" unique_id=1943209231]
 
 [node name="Harvest_counterMain" type="Node" parent="." unique_id=543914948]
@@ -46,8 +50,19 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"Growthmain"
 
 [node name="Collisiondirtmain" type="CollisionShape2D" parent="Dirt_areamain" unique_id=1686948058]
+z_index = 1
+shape = SubResource("RectangleShape2D_kkl5x")
 
 [node name="UI_Bar" parent="Dirt_areamain" unique_id=557015015 instance=ExtResource("8_i7v8s")]
+z_index = 2
+position = Vector2(0, -36.999996)
+scale = Vector2(0.2, 0.2)
 
 [node name="Tickmain" type="Sprite2D" parent="Dirt_areamain" unique_id=1475490148]
+visible = false
+position = Vector2(0, -50)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_mn5yh")
 script = ExtResource("9_355gj")
+
+[connection signal="input_event" from="Dirt_areamain" to="Dirt_areamain" method="_on_input_event"]

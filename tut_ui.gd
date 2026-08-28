@@ -14,7 +14,7 @@ func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	blocker.set_anchors_preset(Control.PRESET_FULL_RECT)
-	blocker.mouse_filter = Control.MOUSE_FILTER_STOP
+	blocker.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	for box in boxes:
 		box.visible = false
 	ok_button.visible = false

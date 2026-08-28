@@ -48,10 +48,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		
 	
 func Growth_timer() -> void:
-	await Growth_bar(5.0)
+	await Growth_bar(60.0)
 	print("Growing stage1")
 	$DirtMain.frame = 3
-	await  Growth_bar(8.0)
+	await Growth_bar(80.0)
 	print("Growing stage2")
 	$DirtMain.frame = 4
 	$Tickmain.visible = true 
@@ -71,6 +71,15 @@ func _harvest() -> void:
 	await tween_done.finished
 	
 	HarvestCounter.add_harvest()
+	$DirtMain.frame = 0
+	has_grown = false
+	Soil_ready = false
+	is_growing = false 
+	is_ready_to_harvest = false
+	
+	$DirtMain.scale = Vector2(1, 1)
+	$DirtMain.modulate.a = 1.0
+	$Tickmain.visible = false
 	return
 	
 func Growth_bar(duration: float) -> void: 
