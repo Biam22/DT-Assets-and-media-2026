@@ -118,8 +118,7 @@ icon_alignment = 2
 script = ExtResource("7_2ncie")
 
 [node name="Score" parent="." unique_id=1550124422 instance=ExtResource("8_q8ng3")]
-visible = false
-z_index = 5
+z_index = 16
 offset_left = 600.0
 offset_top = 400.0
 offset_right = 600.0

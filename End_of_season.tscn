@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://cpv55aja7k37u" path="res://score_ui.gd" id="1_rqjuw"]
 [ext_resource type="FontFile" uid="uid://tm07bonf68ku" path="res://Daydream DEMO.otf" id="2_q3dw4"]
 
+[sub_resource type="Gradient" id="Gradient_q3dw4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q3dw4"]
+gradient = SubResource("Gradient_q3dw4")
+fill_from = Vector2(0, 1)
+
 [node name="Score" type="Control" unique_id=1550124422]
 layout_mode = 3
 anchors_preset = 15
@@ -12,14 +18,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rqjuw")
 
-[node name="TextureRect" type="ColorRect" parent="." unique_id=1005047112]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1338050571]
+custom_maximum_size = Vector2(1200, 800)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.096204735, 0.09620475, 0.096204735, 1)
+texture = SubResource("GradientTexture2D_q3dw4")
+expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="TextureRect" unique_id=2015857892]
 layout_mode = 1
@@ -70,3 +78,4 @@ theme_override_font_sizes/font_size = 50
 text = "Continue"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1775523807]
+oversampling_override = 1.0
