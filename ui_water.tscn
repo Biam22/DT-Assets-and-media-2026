@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://clhpi0s3x54t7"]
+
+[ext_resource type="Texture2D" uid="uid://bp5egocm6yrdq" path="res://Sprites/UI/Waterbarempty.png" id="1_kg1fj"]
+[ext_resource type="Texture2D" uid="uid://jx6lrbmw8fkt" path="res://Sprites/UI/Waterbar.png" id="2_j6kco"]
+
+[node name="UI_water" type="Node2D" unique_id=1677071385]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=413640592]
+offset_right = 160.0
+offset_bottom = 100.0
+pivot_offset = Vector2(80, 0)
+texture_under = ExtResource("1_kg1fj")
+texture_progress = ExtResource("2_j6kco")

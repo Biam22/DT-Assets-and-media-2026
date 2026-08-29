@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://m8urick6hfcb" path="res://Tscns/UI_bar.tscn" id="7_kwsh5"]
 [ext_resource type="Texture2D" uid="uid://dy7qd36j5jrq2" path="res://Sprites/UI/Done!.png" id="8_77to8"]
 [ext_resource type="Script" uid="uid://chh1nvhythtr6" path="res://Tscns/ui_tick.gd" id="9_73vyo"]
+[ext_resource type="PackedScene" uid="uid://clhpi0s3x54t7" path="res://ui_water.tscn" id="11_anacn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82wsy"]
 animations = [{
@@ -64,5 +65,9 @@ position = Vector2(0, -50)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_77to8")
 script = ExtResource("9_73vyo")
+
+[node name="UI_water" parent="Dirt cube" unique_id=1677071385 instance=ExtResource("11_anacn")]
+position = Vector2(-16, -39.5)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="input_event" from="Dirt cube" to="Dirt cube" method="_on_input_event"]

@@ -2,13 +2,13 @@ extends Control
 signal step_dismissed(index: int)
 signal tutorial_finished
 
-@onready var boxes: Array[Control] = [$Blocker/Info_Box, $Blocker/Info_Box2, $Blocker/Info_Box3, $Blocker/Info_Box4, $Blocker/Info_Box5]
+@onready var boxes: Array[Control] = [$Blocker/Info_Box, $Blocker/Info_Box2, $Blocker/Info_Box3, $Blocker/Info_Box4, $Blocker/Info_Box5, $Blocker/Info_Box6, $Blocker/Info_Box7]
 @onready var ok_button: Button = $Blocker/Next
 @onready var blocker: Control = $Blocker
 
 var current_index: int = -1
-var auto_advance_steps: Array[bool] = [true, false, false, false, false]
-var block_input_steps: Array[bool] = [true, true, true, true, true]
+var auto_advance_steps: Array[bool] = [true, false, false, false, false, false, false]
+var block_input_steps: Array[bool] = [true, true, true, true, true, true, false]
 
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)

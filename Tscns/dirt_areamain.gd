@@ -48,10 +48,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		
 	
 func Growth_timer() -> void:
-	await Growth_bar(60.0)
+	await Growth_bar(10.0)
 	print("Growing stage1")
 	$DirtMain.frame = 3
-	await Growth_bar(80.0)
+	await Growth_bar(20.0)
 	print("Growing stage2")
 	$DirtMain.frame = 4
 	$Tickmain.visible = true 

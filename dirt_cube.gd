@@ -1,16 +1,19 @@
 extends Area2D
 @onready var growth_bar: TextureProgressBar = $UI_Bar/UI_growth
-@onready var water_bar:TextureProgressBar = $UI_Bar/UI_water
+@onready var water_bar:TextureProgressBar = $UI_water/TextureProgressBar
 
 var has_grown: bool = false
 var Soil_ready: bool = false
 var is_growing: bool = false 
+var is_planted: bool = false 
+var is_watered: bool = false
 var is_ready_to_harvest: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	growth_bar.visible = false 
+	water_bar.visible = false
 	TutorialUI.show_step(0) 
 
 func _pop_tween() -> void:
@@ -32,22 +35,51 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		_pop_tween()
 		TutorialUI.show_step(2)
 		await get_tree().create_timer(0.1).timeout
-		has_grown = true
 		return
 		
-	elif has_grown and not is_growing and not is_ready_to_harvest:
-		is_growing = true
-		print("Plant!")
-		$Dirt.frame = 2
+	elif Soil_ready and not is_planted and not is_ready_to_harvest:
+		is_planted = true
+		print("Planted!")
+		$Dirt.frame = 2                
+		TutorialUI.show_step(3)        
 		_pop_tween()
 		await get_tree().create_timer(0.1).timeout
-		Growth_timer()
+		return
 		
-	
+	elif is_planted and not is_growing and not is_ready_to_harvest:
+		if not is_watered:
+			is_watered = true
+			print("Watered!")
+			$Dirt.frame = 2 
+			await Water_bar(0.3)
+			_pop_tween()
+			await get_tree().create_timer(0.4).timeout
+		
+			is_growing = true
+			print("Plant is growing!")
+			TutorialUI.show_step(4)
+			Growth_timer()
+			return
+
 	elif is_ready_to_harvest:
 		_harvest()
 		return
 		
+func Water_bar(duration: float) -> void:
+	water_bar.value = 0
+	water_bar.visible = true
+	
+	var tween = create_tween()
+	tween.tween_method(_update_water_bar, 0.0, 1.0, duration)
+	await tween.finished
+	
+	water_bar.visible = false
+
+
+func _update_water_bar(progress: float) -> void:
+	water_bar.value = progress * water_bar.max_value
+	
+
 	
 func Growth_timer() -> void:
 	await Growth_bar(5.0)
@@ -56,7 +88,7 @@ func Growth_timer() -> void:
 	await  Growth_bar(8.0)
 	print("Growing stage2")
 	$Dirt.frame = 4
-	TutorialUI.show_step(3)
+	TutorialUI.show_step(5)
 	$UI_Tick.visible = true 
 	is_ready_to_harvest = true
 	return
@@ -74,7 +106,7 @@ func _harvest() -> void:
 	await tween_done.finished
 	
 	HarvestCounter.add_harvest()
-	TutorialUI.show_step(4)
+	TutorialUI.show_step(6)
 	return
 	
 func Growth_bar(duration: float) -> void: 
