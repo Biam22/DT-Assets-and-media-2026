@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://dhntnlal04nu4"]
+
+[ext_resource type="Script" uid="uid://cpv55aja7k37u" path="res://score_ui.gd" id="1_rqjuw"]
+[ext_resource type="FontFile" uid="uid://tm07bonf68ku" path="res://Daydream DEMO.otf" id="2_q3dw4"]
+
+[node name="Score" type="Control" unique_id=1550124422]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqjuw")
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=1005047112]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.096204735, 0.09620475, 0.096204735, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect" unique_id=2015857892]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect/CenterContainer" unique_id=570211010]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/CenterContainer/PanelContainer" unique_id=844643295]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/CenterContainer/PanelContainer/MarginContainer" unique_id=1472312564]
+layout_mode = 2
+
+[node name="Titlelabel" type="Label" parent="TextureRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2143201768]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q3dw4")
+theme_override_font_sizes/font_size = 50
+text = "Season 1 complete!"
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1380576706]
+layout_mode = 2
+
+[node name="Harvested_label" type="Label" parent="TextureRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1599488083]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q3dw4")
+theme_override_font_sizes/font_size = 50
+text = "Plants Harvested: 0"
+
+[node name="Score_label" type="Label" parent="TextureRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1200899182]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q3dw4")
+theme_override_font_sizes/font_size = 50
+text = "Money Earned: $0"
+
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1350607233]
+layout_mode = 2
+
+[node name="Continue_button" type="Button" parent="TextureRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1395790503]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.1764706, 0.8745098, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_q3dw4")
+theme_override_font_sizes/font_size = 50
+text = "Continue"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1775523807]

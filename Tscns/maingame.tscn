@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://wnfot1daj0wf" path="res://Tscns/Plantprocessmain.tscn" id="3_0oesi"]
 [ext_resource type="Texture2D" uid="uid://cjhbep461yf5t" path="res://Sprites/Plant_sprites/Dirtgrowt0.5.png" id="3_kkl5x"]
 [ext_resource type="PackedScene" uid="uid://bkbl6knoxaf5x" path="res://ui_counter.tscn" id="4_0oesi"]
+[ext_resource type="Texture2D" uid="uid://dy7qd36j5jrq2" path="res://Sprites/UI/Done!.png" id="6_mm73w"]
+[ext_resource type="Script" uid="uid://l3usb0477nf6" path="res://Tscns/Seasonbutton.gd" id="7_2ncie"]
+[ext_resource type="PackedScene" uid="uid://dhntnlal04nu4" path="res://End_of_season.tscn" id="8_q8ng3"]
 
 [node name="Maingame" type="Node2D" unique_id=798757891]
 script = ExtResource("1_h0ucd")
@@ -98,3 +101,26 @@ offset_left = 6.0
 offset_top = 4.0
 offset_right = 6.0
 offset_bottom = 4.0
+
+[node name="End_season" type="Button" parent="." unique_id=1829582682]
+z_index = 1
+offset_left = 993.0
+offset_top = 26.0
+offset_right = 1170.0
+offset_bottom = 74.0
+theme_override_colors/font_hover_color = Color(0.285217, 0.6125241, 0.2315366, 1)
+theme_override_colors/icon_normal_color = Color(0.039215688, 0.7411765, 0.64705884, 1)
+theme_override_font_sizes/font_size = 22
+text = "Finish Season"
+icon = ExtResource("6_mm73w")
+autowrap_mode = 3
+icon_alignment = 2
+script = ExtResource("7_2ncie")
+
+[node name="Score" parent="." unique_id=1550124422 instance=ExtResource("8_q8ng3")]
+visible = false
+z_index = 5
+offset_left = 600.0
+offset_top = 400.0
+offset_right = 600.0
+offset_bottom = 400.0

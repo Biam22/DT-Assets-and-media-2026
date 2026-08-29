@@ -19,7 +19,6 @@ texture = SubResource("CompressedTexture2D_vkr66")
 
 [node name="TUT_UI" parent="." unique_id=512498115 instance=ExtResource("3_ewiot")]
 z_index = 7
-anchors_preset = 15
 offset_left = 3.0
 offset_top = 87.0
 offset_right = 3.0

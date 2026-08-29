@@ -9,6 +9,8 @@ var is_planted: bool = false
 var is_watered: bool = false
 var is_ready_to_harvest: bool = false
 
+var water_amount: float = 0.0        
+var water_needed: float = 3.0 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,37 +50,36 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		
 	elif is_planted and not is_growing and not is_ready_to_harvest:
 		if not is_watered:
-			is_watered = true
-			print("Watered!")
-			$Dirt.frame = 2 
-			await Water_bar(0.3)
+			water_amount += 1.0
+			print("Watering... (%s/%s)" % [water_amount, water_needed])
+			water_bar.visible = true
+			await _fill_water_bar_step()
 			_pop_tween()
-			await get_tree().create_timer(0.4).timeout
-		
-			is_growing = true
-			print("Plant is growing!")
-			TutorialUI.show_step(4)
-			Growth_timer()
+			
+			if water_amount >= water_needed:
+				TutorialUI.show_step(4)
+				is_watered = true
+				await get_tree().create_timer(0.1).timeout
+				is_growing = true
+				print("Plant is growing!")
+				water_bar.visible = false 
+				Growth_timer()
 			return
+		
 
 	elif is_ready_to_harvest:
 		_harvest()
 		return
 		
-func Water_bar(duration: float) -> void:
-	water_bar.value = 0
-	water_bar.visible = true
-	
+func _fill_water_bar_step() -> void:
+	var target: float = water_amount / water_needed
 	var tween = create_tween()
-	tween.tween_method(_update_water_bar, 0.0, 1.0, duration)
+	tween.tween_method(_update_water_bar, water_bar.value / water_bar.max_value, target, 0.2)
 	await tween.finished
-	
-	water_bar.visible = false
 
 
 func _update_water_bar(progress: float) -> void:
 	water_bar.value = progress * water_bar.max_value
-	
 
 	
 func Growth_timer() -> void:
@@ -107,6 +108,7 @@ func _harvest() -> void:
 	
 	HarvestCounter.add_harvest()
 	TutorialUI.show_step(6)
+	TutorialUI.show_step(7)
 	return
 	
 func Growth_bar(duration: float) -> void: 

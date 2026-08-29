@@ -83,10 +83,10 @@ text = "Click again to plant the seed"
 
 [node name="Info_Box4" type="PanelContainer" parent="Blocker" unique_id=603432275]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 500.0
-offset_right = 1091.0
-offset_bottom = 549.0
+offset_left = 114.0
+offset_top = 497.0
+offset_right = 1115.0
+offset_bottom = 546.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box4" unique_id=802633723]
 layout_mode = 2
@@ -94,14 +94,14 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Blocker/Info_Box4/MarginContainer" unique_id=322818850]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Your plant needs water! Left-click it again to water it."
+text = "Your plant needs water! Left-click it  a few times to water it."
 
 [node name="Info_Box5" type="PanelContainer" parent="Blocker" unique_id=40936512]
 layout_mode = 0
-offset_left = 300.0
-offset_top = 500.0
-offset_right = 748.0
-offset_bottom = 549.0
+offset_left = 382.0
+offset_top = 502.0
+offset_right = 830.0
+offset_bottom = 551.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box5" unique_id=608712140]
 layout_mode = 2
@@ -128,10 +128,10 @@ text = "The plant is now ready to harvest (By Clicking) "
 
 [node name="Info_Box7" type="PanelContainer" parent="Blocker" unique_id=1842004048]
 layout_mode = 0
-offset_left = 300.0
-offset_top = 250.0
-offset_right = 918.0
-offset_bottom = 299.0
+offset_left = 322.0
+offset_top = 332.0
+offset_right = 902.0
+offset_bottom = 485.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box7" unique_id=140374899]
 layout_mode = 2
@@ -139,4 +139,20 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Blocker/Info_Box7/MarginContainer" unique_id=1368383660]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Well done your now a expert at this! "
+text = "Remember to sell your plants and end the season for your score"
+autowrap_mode = 2
+
+[node name="Info_Box8" type="PanelContainer" parent="Blocker" unique_id=1169451250]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 254.0
+offset_right = 814.0
+offset_bottom = 303.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Blocker/Info_Box8" unique_id=109360607]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Blocker/Info_Box8/MarginContainer" unique_id=1490206023]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Your now a expert at this!!"

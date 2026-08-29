@@ -9,4 +9,6 @@ func _ready() -> void:
 
 func _on_tutorial_finished() -> void:
 	get_tree().change_scene_to_file("res://Tscns/title_screen.tscn")
+	
+	
 		
