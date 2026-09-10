@@ -103,6 +103,7 @@ offset_right = 6.0
 offset_bottom = 4.0
 
 [node name="End_season" type="Button" parent="." unique_id=1829582682]
+visible = false
 z_index = 1
 offset_left = 993.0
 offset_top = 26.0
