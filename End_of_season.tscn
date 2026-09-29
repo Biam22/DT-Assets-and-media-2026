@@ -13,6 +13,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 2.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rqjuw")
@@ -33,8 +37,64 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -367.0
+offset_top = -247.0
+offset_right = -367.0
+offset_bottom = -247.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(369, 247)
+
+[node name="PanelContainer2" type="PanelContainer" parent="TextureRect/CenterContainer" unique_id=450472143]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/CenterContainer/PanelContainer2" unique_id=762642790]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2" unique_id=1221763492]
+layout_mode = 2
+
+[node name="Titlelabel2" type="Label" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2" unique_id=1597807892]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Seasonal choice!"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2" unique_id=545807967]
+layout_mode = 2
+
+[node name="Invest_label" type="Label" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2" unique_id=965202108]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "How would you like to spend your money?"
+
+[node name="Spend_label" type="Label" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2" unique_id=1849610492]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "1. Bulldoze surrounding trees ($5 per block) 
+2. Introduce pollinators to 
+increase crop health ($5 per bee hive)"
+
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2" unique_id=430368446]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2" unique_id=316829991]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Choice_button" type="Button" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2/HBoxContainer" unique_id=630898687]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.1764706, 0.8745098, 0.6, 1)
+theme_override_font_sizes/font_size = 50
+text = "1."
+
+[node name="Choice_button2" type="Button" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2/HBoxContainer" unique_id=795479993]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.1764706, 0.8745098, 0.6, 1)
+theme_override_font_sizes/font_size = 50
+text = "2."
 
 [node name="PanelContainer" type="PanelContainer" parent="TextureRect/CenterContainer" unique_id=570211010]
 layout_mode = 2

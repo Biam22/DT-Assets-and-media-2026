@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bgrp4n15aj7ip"]
+
+[ext_resource type="Texture2D" uid="uid://q1hwnl8kr6yn" path="res://Sprites/Plant_sprites/tree_bunch.png" id="1_el68p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(121, 124)
+
+[node name="Trees" type="Node2D" unique_id=529386251]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=245589652]
+position = Vector2(16, 3)
+texture = ExtResource("1_el68p")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=167152339]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=322782637]
+position = Vector2(2.5, 7)
+shape = SubResource("RectangleShape2D_g4v7s")

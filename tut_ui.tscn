@@ -63,7 +63,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Blocker/Info_Box2/MarginContainer" unique_id=2004419810]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "To play, start by prepping the dirt for planting. This can be done by left-clicking on the dirt."
+text = "To play, start by prepping the dirt for planting. This can be done by left-clicking on the soil."
 autowrap_mode = 3
 
 [node name="Info_Box3" type="PanelContainer" parent="Blocker" unique_id=535962818]
@@ -139,7 +139,6 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Blocker/Info_Box7/MarginContainer" unique_id=1368383660]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Remember to sell your plants and end the season for your score"
 autowrap_mode = 2
 
 [node name="Info_Box8" type="PanelContainer" parent="Blocker" unique_id=1169451250]

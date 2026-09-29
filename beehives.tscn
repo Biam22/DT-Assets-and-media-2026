@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cjknjcrno2fj2"]
+
+[ext_resource type="Script" uid="uid://bw2lxprx85cjm" path="res://beehives.gd" id="1_kt01t"]
+[ext_resource type="Texture2D" uid="uid://gqk0whmr77fq" path="res://Sprites/Plant_sprites/Bee hives.png" id="2_huqny"]
+
+[node name="Beehives" type="Node2D" unique_id=757094564]
+script = ExtResource("1_kt01t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=122493122]
+texture = ExtResource("2_huqny")

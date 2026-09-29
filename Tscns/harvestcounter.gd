@@ -10,7 +10,7 @@ var price_per_plant: int = 10
 
 func add_harvest(amount: int = 1) -> void:
 	count += amount
-	score += amount * price_per_plant
+	score += int(round(amount * price_per_plant * (1.0 + GameState.yield_bonus / 100.0)))
 	harvest_count_changed.emit(count)
 	score_changed.emit(score)
 

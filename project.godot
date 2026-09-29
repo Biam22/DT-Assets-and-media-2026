@@ -20,13 +20,15 @@ TutorialUI="*uid://cexj8htfsobto"
 HarvestCounter="*uid://dfmvrot1uxs1o"
 HarvestCounterMain="*uid://b77fppklwkds8"
 ScoreUi="uid://cpv55aja7k37u"
+GameState="*uid://ly2eysv3lymi"
+Bulldoze="*uid://dhlrg6er0wegk"
+SeasonFX="*uid://ek8a04hl2gpp"
 
 [display]
 
 window/size/viewport_width=1200
 window/size/viewport_height=800
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/mode="canvas_items"
 
 [input]
 
