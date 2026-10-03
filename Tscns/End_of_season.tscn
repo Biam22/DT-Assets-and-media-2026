@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhntnlal04nu4"]
 
-[ext_resource type="Script" uid="uid://cpv55aja7k37u" path="res://score_ui.gd" id="1_rqjuw"]
+[ext_resource type="Script" uid="uid://cpv55aja7k37u" path="res://Tscns/score_ui.gd" id="1_rqjuw"]
 
 [sub_resource type="Gradient" id="Gradient_q3dw4"]
 
@@ -37,10 +37,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -367.0
-offset_top = -247.0
-offset_right = -367.0
-offset_bottom = -247.0
+offset_left = -372.0
+offset_top = -248.0
+offset_right = -359.0
+offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(369, 247)
@@ -70,10 +70,10 @@ text = "How would you like to spend your money?"
 
 [node name="Spend_label" type="Label" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2" unique_id=1849610492]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "1. Bulldoze surrounding trees ($5 per block) 
-2. Introduce pollinators to 
-increase crop health ($5 per bee hive)"
+theme_override_font_sizes/font_size = 43
+text = "1. The local forestry company has given you deal for you surrounding trees (Cut them down for profit?)
+2. Your neighbor has spare beehives do you take them? ($5 per )"
+autowrap_mode = 3
 
 [node name="HSeparator2" type="HSeparator" parent="TextureRect/CenterContainer/PanelContainer2/MarginContainer2/VBoxContainer2" unique_id=430368446]
 layout_mode = 2

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bkbl6knoxaf5x"]
 
-[ext_resource type="Script" uid="uid://c1oxx154rkife" path="res://h_box_container.gd" id="1_ciswu"]
+[ext_resource type="Script" uid="uid://c1oxx154rkife" path="res://Tscns/h_box_container.gd" id="1_ciswu"]
 [ext_resource type="Texture2D" uid="uid://c2tx8ki7im2yl" path="res://Sprites/UI/Planticon.png" id="2_6x3wn"]
-[ext_resource type="FontFile" uid="uid://tm07bonf68ku" path="res://Daydream DEMO.otf" id="3_6x3wn"]
+[ext_resource type="FontFile" uid="uid://tm07bonf68ku" path="res://Tscns/Daydream DEMO.otf" id="3_6x3wn"]
 
 [node name="UI_counter" type="Control" unique_id=1795615604]
 layout_mode = 3

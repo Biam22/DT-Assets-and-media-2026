@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://buj0bp3w53j5v"]
 
-[ext_resource type="Script" uid="uid://dgvg36kxi1imx" path="res://dirt_cube.gd" id="1_jtjg4"]
+[ext_resource type="Script" uid="uid://dgvg36kxi1imx" path="res://Tscns/dirt_cube.gd" id="1_jtjg4"]
 [ext_resource type="Script" uid="uid://dfmvrot1uxs1o" path="res://Tscns/harvestcounter.gd" id="1_vs7cm"]
 [ext_resource type="Texture2D" uid="uid://c7v2xgiu62e72" path="res://Sprites/Plant_sprites/Dirtgrow1t.png" id="2_jtjg4"]
 [ext_resource type="Texture2D" uid="uid://cjhbep461yf5t" path="res://Sprites/Plant_sprites/Dirtgrowt0.5.png" id="2_ugdo7"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://m8urick6hfcb" path="res://Tscns/UI_bar.tscn" id="7_kwsh5"]
 [ext_resource type="Texture2D" uid="uid://dy7qd36j5jrq2" path="res://Sprites/UI/Done!.png" id="8_77to8"]
 [ext_resource type="Script" uid="uid://chh1nvhythtr6" path="res://Tscns/ui_tick.gd" id="9_73vyo"]
-[ext_resource type="PackedScene" uid="uid://clhpi0s3x54t7" path="res://ui_water.tscn" id="11_anacn"]
+[ext_resource type="PackedScene" uid="uid://clhpi0s3x54t7" path="res://Tscns/ui_water.tscn" id="11_anacn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82wsy"]
 animations = [{
@@ -69,5 +69,3 @@ script = ExtResource("9_73vyo")
 [node name="UI_water" parent="Dirt cube" unique_id=1677071385 instance=ExtResource("11_anacn")]
 position = Vector2(-16, -39.5)
 scale = Vector2(0.2, 0.2)
-
-[connection signal="input_event" from="Dirt cube" to="Dirt cube" method="_on_input_event"]

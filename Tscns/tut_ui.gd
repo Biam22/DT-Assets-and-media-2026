@@ -7,8 +7,12 @@ signal tutorial_finished
 @onready var blocker: Control = $Blocker
 
 var current_index: int = -1
-var auto_advance_steps: Array[bool] = [true, false, false, false, false, false, false, false]
-var block_input_steps: Array[bool] = [true, true, true, true, true, true, true, true]
+var last_step: int = -1
+
+var block_input_steps: Array[bool] = [false, false, false, false, false, false, false, false]
+
+func _final_step() -> int:
+	return boxes.size() - 1 if last_step < 0 else last_step
 
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -27,30 +31,34 @@ func show_step(index: int) -> void:
 		boxes[current_index].visible = false
 	current_index = index
 	boxes[index].visible = true
+	var is_final: bool = index == _final_step()
 	ok_button.visible = true
-	ok_button.text = "Return" if index == boxes.size() - 1 else "Ok!"
+	ok_button.text = "Return" if is_final else "Ok!"
 	_set_blocking(block_input_steps[index])
+
+
+func clear_message() -> void:
+	if current_index >= 0:
+		boxes[current_index].visible = false
+	ok_button.visible = false
+
+func message_visible() -> bool:
+	return current_index >= 0 and boxes[current_index].visible
 
 func _on_ok_pressed() -> void:
 	if current_index == -1:
 		return
-	var was_last_step := current_index == boxes.size() - 1
 
-	boxes[current_index].visible = false
-	ok_button.visible = false
 	var dismissed := current_index
-	current_index = -1
-	step_dismissed.emit(dismissed)
-
-	if was_last_step:
-		_set_blocking(false)
+	if dismissed == _final_step():
+		clear_message()
+		current_index = -1
+		step_dismissed.emit(dismissed)
 		tutorial_finished.emit()
 		return
 
-	if dismissed < auto_advance_steps.size() and auto_advance_steps[dismissed]:
-		show_step(dismissed + 1)
-	else:
-		_set_blocking(false)
+	clear_message()
+	step_dismissed.emit(dismissed)
 
 func _set_blocking(should_block: bool) -> void:
 	blocker.mouse_filter = Control.MOUSE_FILTER_STOP if should_block else Control.MOUSE_FILTER_IGNORE

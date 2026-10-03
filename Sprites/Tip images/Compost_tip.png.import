@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7yi8uwo5338"
-path="res://.godot/imported/Grass.png-26c6f9742a5ae2a629603d35d3e20fc3.ctex"
+uid="uid://c2a16cfpoulj"
+path="res://.godot/imported/Compost_tip.png-5f2cde3b88507c66c6e8dd86953da39a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Grass.png"
-dest_files=["res://.godot/imported/Grass.png-26c6f9742a5ae2a629603d35d3e20fc3.ctex"]
+source_file="res://Sprites/Tip images/Compost_tip.png"
+dest_files=["res://.godot/imported/Compost_tip.png-5f2cde3b88507c66c6e8dd86953da39a.ctex"]
 
 [params]
 

@@ -1,5 +1,8 @@
 extends Node
 
+signal transition_done
+
+var busy := false
 var canvas: CanvasLayer
 var fade: ColorRect
 var label: Label
@@ -30,6 +33,8 @@ func _ready() -> void:
 	canvas.add_child(label)
 
 func transition_to_next_season() -> void:
+	busy = true
+	GameState.farm_locked = true
 	fade.mouse_filter = Control.MOUSE_FILTER_STOP
 
 	var out_tween := create_tween()
@@ -50,3 +55,6 @@ func transition_to_next_season() -> void:
 	await in_tween.finished
 
 	fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	busy = false
+	GameState.farm_locked = false
+	transition_done.emit()

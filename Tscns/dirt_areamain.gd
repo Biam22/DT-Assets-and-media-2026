@@ -1,133 +1,179 @@
 extends Area2D
+
+signal planted
+signal harvested
+
+const GROW_TIME_ONE := 3.0
+const GROW_TIME_TWO := 4.0
+
 @onready var growth_bar: TextureProgressBar = $UI_Bar/UI_growth
-@onready var water_bar: TextureProgressBar = $UI_water/TextureProgressBar
-var has_grown: bool = false
-var Soil_ready: bool = false
-var is_growing: bool = false 
-var is_planted: bool = false 
-var is_watered: bool = false
-var is_ready_to_harvest: bool = false
-var water_amount: float = 0.0        
-var water_needed: float = 3.0 
+
+var soil_ready: bool = false
+var is_planted: bool = false
+var till_progress: float = 0.0
+var seeds_dropped: int = 0
+var planting = null
 
 func _ready() -> void:
-	growth_bar.visible = false 
-	water_bar.visible = false
-	
+	add_to_group("plots")
+	growth_bar.visible = false
+	var water_ui := get_node_or_null("UI_water")
+	if water_ui:
+		water_ui.visible = false
+
+	var scene: Node = get_tree().current_scene
+	if scene:
+		planting = scene.get_node_or_null("MiniGames/Planting")
+
+func _mark_planted() -> void:
+	if is_planted:
+		return
+	is_planted = true
+	planted.emit()
+
+func _spawn_dirt_particles() -> void:
+	var particles: CPUParticles2D = CPUParticles2D.new()
+	particles.emitting = false
+	particles.one_shot = true
+	particles.explosiveness = 1.0
+	particles.amount = 12
+	particles.lifetime = 0.55
+	particles.lifetime_randomness = 0.35
+	particles.position = Vector2(0, 4)
+
+	particles.direction = Vector2(0, -0.3)
+	particles.spread = 55.0
+	particles.initial_velocity_min = 55.0
+	particles.initial_velocity_max = 95.0
+	particles.gravity = Vector2(0, 320.0)
+	particles.damping_min = 0.0
+	particles.damping_max = 0.0
+	particles.angular_velocity_min = -220.0
+	particles.angular_velocity_max = 220.0
+	particles.scale_amount_min = 2.0
+	particles.scale_amount_max = 3.4
+	particles.randomness = 0.4
+
+	var color_ramp: Gradient = Gradient.new()
+	color_ramp.add_point(0.0, Color(0.33, 0.23, 0.13, 1.0))
+	color_ramp.add_point(0.7, Color(0.29, 0.2, 0.11, 1.0))
+	color_ramp.add_point(1.0, Color(0.25, 0.17, 0.09, 0.0))
+	particles.color = Color(1, 1, 1, 1)
+	particles.color_ramp = color_ramp
+
+	add_child(particles)
+	particles.global_position = $DirtMain.global_position
+	particles.emitting = true
+
+	await get_tree().create_timer(particles.lifetime + 0.1).timeout
+	if is_instance_valid(particles):
+		particles.queue_free()
+
 func _pop_tween() -> void:
-	var tween = create_tween()
-	tween.tween_property($DirtMain, "scale", Vector2(1.2, 1.2), 0.1)
-	tween.tween_property($DirtMain, "scale", Vector2(1, 1), 0.1)
-	await tween.finished
-	
-func _water_flash() -> void:
-	var tween = create_tween()
-	tween.tween_property($DirtMain, "modulate", Color(0.6, 0.8, 1.2), 0.1)
-	tween.tween_property($DirtMain, "modulate", Color(1, 1, 1), 0.15)
+	var tween: Tween = create_tween()
+	tween.tween_property($DirtMain, "scale", Vector2(1.15, 1.15), 0.08).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property($DirtMain, "scale", Vector2(1, 1), 0.08).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	await tween.finished
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if GameState.farm_locked:
+		return
 	if not Input.is_action_just_pressed("Left_Click"):
-		return 
-		
-	if not Soil_ready:
-		Soil_ready = true
-		print("Prepping soil!!")
-		$DirtMain.frame = 1
-		_pop_tween()
-		await get_tree().create_timer(0.1).timeout
 		return
-		
-	elif Soil_ready and not is_planted and not is_ready_to_harvest:
-		is_planted = true
-		print("Planted!")
-		$DirtMain.frame = 2                        
-		_pop_tween()
-		await get_tree().create_timer(0.4).timeout
+	if planting == null:
 		return
-		
-	elif is_planted and not is_growing and not is_ready_to_harvest:
-		if not is_watered:
-			water_amount += 1.0
-			print("Watering... (%s/%s)" % [water_amount, water_needed])
-			water_bar.visible = true
-			await _fill_water_bar_step()
-			_pop_tween()
-			_water_flash()
-			
-			if water_amount >= water_needed:
-				is_watered = true
-				await get_tree().create_timer(0.1).timeout
-				is_growing = true
-				print("Plant is growing!")
-				water_bar.visible = false 
-				Growth_timer()
-			return
-		
-	elif is_ready_to_harvest:
-		_harvest()
+	if is_planted or planting.is_active():
 		return
-		
-func _fill_water_bar_step() -> void:
-	var target: float = water_amount / water_needed
-	var tween = create_tween()
-	tween.tween_method(_update_water_bar, water_bar.value / water_bar.max_value, target, 0.2)
-	await tween.finished
+	planting.begin(self)
 
-func _update_water_bar(progress: float) -> void:
-	water_bar.value = progress * water_bar.max_value
-	
-func Growth_timer() -> void:
-	await Growth_bar(5.0)
-	print("Growing stage1")
-	$DirtMain.frame = 3
-	await Growth_bar(8.0)
-	print("Growing stage2")
-	$DirtMain.frame = 4
-	$Tickmain.visible = true 
-	is_ready_to_harvest = true
-	return
-	
-func _harvest() -> void:
-	if not is_ready_to_harvest:
+func _fly_crops_to_counter(amount: int) -> void:
+	var scene: Node = get_tree().current_scene
+	if scene == null:
 		return
-	is_ready_to_harvest = false
-	print("Harvested!")
-	var tween_done = create_tween()
-	tween_done.set_parallel(true)
-	tween_done.tween_property($DirtMain, "scale", Vector2(1.3, 1.3), 0.15)
-	tween_done.tween_property($DirtMain, "modulate:a", 0.0, 0.2)
-	await tween_done.finished
-	
-	HarvestCounter.add_harvest()
+
+	var counter: Control = scene.find_child("Counting", true, false)
+	if counter == null:
+		return
+
+	var start_pos: Vector2 = $DirtMain.global_position
+	var target_pos: Vector2 = counter.global_position + (counter.size * 0.5)
+
+	var crop_texture: Texture2D = load("res://Sprites/UI/Planticon.png")
+	if crop_texture == null:
+		return
+
+	var spawn_count: int = amount
+	if spawn_count < 1:
+		spawn_count = 1
+	if spawn_count > 8:
+		spawn_count = 8
+
+	for i in spawn_count:
+		var crop: Sprite2D = Sprite2D.new()
+		crop.texture = crop_texture
+		crop.scale = Vector2(0.55, 0.55)
+		crop.z_index = 5
+		crop.global_position = start_pos + Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))
+		get_tree().current_scene.add_child(crop)
+
+		var t: Tween = create_tween()
+		t.set_parallel(true)
+		var delay: float = randf_range(0.0, 0.02)
+		t.tween_property(crop, "global_position", target_pos, 0.4).set_delay(delay).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		t.tween_property(crop, "scale", Vector2(0.22, 0.22), 0.4).set_delay(delay).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		t.tween_property(crop, "modulate:a", 0.0, 0.35).set_delay(delay + 0.05)
+		t.finished.connect(func():
+			if is_instance_valid(crop):
+				crop.queue_free()
+		)
+
+func grow_and_harvest(crops: int) -> void:
+	await get_tree().create_timer(randf_range(0.0, 0.5)).timeout
+	await _fill_growth_bar(GROW_TIME_ONE)
+	$DirtMain.frame = 3
+	await _fill_growth_bar(GROW_TIME_TWO)
+	$DirtMain.frame = 4
+	$Tickmain.visible = true
+	$Tickmain.modulate.a = 1.0
+	$Tickmain.position = $Tickmain.position
+	$Tickmain.scale = Vector2(0.9, 0.9)
+	var tick_t: Tween = create_tween()
+	tick_t.set_parallel(true)
+	tick_t.tween_property($Tickmain, "position", $Tickmain.position + Vector2(0, -15), 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tick_t.tween_property($Tickmain, "scale", Vector2(1.1, 1.1), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tick_t.tween_property($Tickmain, "modulate:a", 0.0, 0.35).set_delay(0.15)
+	tick_t.finished.connect(func():
+		if is_instance_valid($Tickmain):
+			$Tickmain.visible = false
+	)
+	await get_tree().create_timer(0.7).timeout
+
+	var tween_pop: Tween = create_tween()
+	tween_pop.set_parallel(true)
+	tween_pop.tween_property($DirtMain, "scale", Vector2(1.2, 1.2), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween_pop.tween_property($DirtMain, "modulate:a", 0.0, 0.15)
+	await tween_pop.finished
+
+	_fly_crops_to_counter(crops)
+	await get_tree().create_timer(0.38).timeout
+	HarvestCounter.add_harvest(crops)
+
 	$DirtMain.frame = 0
-	Soil_ready = false
-	is_planted = false
-	is_growing = false
-	is_watered = false
-	is_ready_to_harvest = false
-	water_amount = 0.0
-	
 	$DirtMain.scale = Vector2(1, 1)
 	$DirtMain.modulate = Color(1, 1, 1, 1)
-	
-	growth_bar.visible = false
+	soil_ready = false
+	is_planted = false
+	till_progress = 0.0
+	seeds_dropped = 0
+	harvested.emit()
+
+func _fill_growth_bar(duration: float) -> void:
 	growth_bar.value = 0
-	water_bar.visible = false
-	water_bar.value = 0
-	
-	$Tickmain.visible = false
-	return
-	
-func Growth_bar(duration: float) -> void: 
-	growth_bar.value = 0 
-	growth_bar.visible = true 
-	
-	var tween = create_tween()
+	growth_bar.visible = true
+	var tween: Tween = create_tween()
 	tween.tween_method(_update_bar, 0.0, 1.0, duration)
 	await tween.finished
-	
-	growth_bar.visible = false 
-	
+	growth_bar.visible = false
+
 func _update_bar(progress: float) -> void:
 	growth_bar.value = progress * growth_bar.max_value

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://itha0mukkqwx"]
 
-[ext_resource type="Script" uid="uid://t7ldlaq18amh" path="res://Tscns/button.gd" id="1_jnast"]
+[ext_resource type="Script" uid="uid://t7ldlaq18amh" path="res://Scripts/button.gd" id="1_jnast"]
 [ext_resource type="Script" uid="uid://bq4f08a5aj0po" path="res://Tscns/tut_button_2.gd" id="2_p3qtn"]
 
 [node name="Title screen" type="Control" unique_id=944425554]

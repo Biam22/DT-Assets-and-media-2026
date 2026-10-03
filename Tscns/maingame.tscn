@@ -1,18 +1,28 @@
 [gd_scene format=3 uid="uid://c4t5o04gwy7ko"]
 
-[ext_resource type="Texture2D" uid="uid://bb7yi8uwo5338" path="res://Sprites/Grass.png" id="1_2lpk8"]
+[ext_resource type="Texture2D" uid="uid://bb7yi8uwo5338" path="res://Sprites/Plant_sprites/Grass (2).png" id="1_2lpk8"]
 [ext_resource type="Script" uid="uid://b4tvx0on1p1mc" path="res://Tscns/maingame.gd" id="1_h0ucd"]
 [ext_resource type="PackedScene" uid="uid://wnfot1daj0wf" path="res://Tscns/Plantprocessmain.tscn" id="3_0oesi"]
 [ext_resource type="Texture2D" uid="uid://cjhbep461yf5t" path="res://Sprites/Plant_sprites/Dirtgrowt0.5.png" id="3_kkl5x"]
-[ext_resource type="PackedScene" uid="uid://bkbl6knoxaf5x" path="res://ui_counter.tscn" id="4_0oesi"]
+[ext_resource type="PackedScene" uid="uid://bkbl6knoxaf5x" path="res://Tscns/ui_counter.tscn" id="4_0oesi"]
 [ext_resource type="Script" uid="uid://dhlrg6er0wegk" path="res://Tscns/bulldoze.gd" id="6_6u266"]
 [ext_resource type="Texture2D" uid="uid://dy7qd36j5jrq2" path="res://Sprites/UI/Done!.png" id="6_mm73w"]
 [ext_resource type="Script" uid="uid://l3usb0477nf6" path="res://Tscns/Seasonbutton.gd" id="7_2ncie"]
-[ext_resource type="Script" uid="uid://ek8a04hl2gpp" path="res://season_fx.gd" id="7_wy5id"]
-[ext_resource type="PackedScene" uid="uid://dhntnlal04nu4" path="res://End_of_season.tscn" id="8_q8ng3"]
-[ext_resource type="PackedScene" uid="uid://bgrp4n15aj7ip" path="res://trees.tscn" id="9_q8ng3"]
-[ext_resource type="Script" uid="uid://bw2lxprx85cjm" path="res://beehives.gd" id="12_n47kk"]
+[ext_resource type="Script" uid="uid://ek8a04hl2gpp" path="res://Tscns/season_fx.gd" id="7_wy5id"]
+[ext_resource type="PackedScene" uid="uid://dhntnlal04nu4" path="res://Tscns/End_of_season.tscn" id="8_q8ng3"]
+[ext_resource type="Script" uid="uid://dqvdgl2qngct0" path="res://Tscns/money_ui.gd" id="9_3vkrt"]
+[ext_resource type="PackedScene" uid="uid://bgrp4n15aj7ip" path="res://Tscns/trees.tscn" id="9_q8ng3"]
+[ext_resource type="Script" uid="uid://bgcjh3shmnu1m" path="res://Tscns/fertilizer.gd" id="9_vqmb7"]
+[ext_resource type="Script" uid="uid://c1ysmmvmcc4hm" path="res://Tscns/herbicide.gd" id="10_rk6my"]
+[ext_resource type="Script" uid="uid://l8wvqxbb6ot" path="res://Tscns/compost.gd" id="11_7invp"]
+[ext_resource type="Script" uid="uid://evbjf2lr0emj" path="res://Tscns/natives.gd" id="12_5bvyl"]
+[ext_resource type="Script" uid="uid://bw2lxprx85cjm" path="res://Tscns/beehives.gd" id="12_n47kk"]
 [ext_resource type="Texture2D" uid="uid://gqk0whmr77fq" path="res://Sprites/Plant_sprites/Bee hives.png" id="13_3vkrt"]
+[ext_resource type="Script" uid="uid://dau14yr36kfkd" path="res://Tscns/planting.gd" id="13_5bvyl"]
+[ext_resource type="Texture2D" uid="uid://n47wsunjxuc2" path="res://Sprites/Tip images/Chem_tip.png" id="15_nu721"]
+[ext_resource type="Texture2D" uid="uid://mmke37rexww5" path="res://Sprites/Tip images/Tree_tip.png" id="16_vqmb7"]
+[ext_resource type="Texture2D" uid="uid://c2a16cfpoulj" path="res://Sprites/Tip images/Compost_tip.png" id="17_rk6my"]
+[ext_resource type="Texture2D" uid="uid://drlcjk4xne7qr" path="res://Sprites/Tip images/Beehive_tip.png" id="18_sv1ke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(68.5, 72.75)
@@ -141,54 +151,33 @@ scale = Vector2(2, 2)
 position = Vector2(469, 295.5)
 scale = Vector2(2, 2)
 
-[node name="Plant_processmain9" parent="Plants" unique_id=143695473 instance=ExtResource("3_0oesi")]
-visible = false
-position = Vector2(350, 380)
-scale = Vector2(2, 2)
+[node name="MiniGames" type="Node" parent="." unique_id=853805357]
 
-[node name="Plant_processmain10" parent="Plants" unique_id=2067071437 instance=ExtResource("3_0oesi")]
-visible = false
-position = Vector2(450, 380)
-scale = Vector2(2, 2)
-
-[node name="Plant_processmain11" parent="Plants" unique_id=904356285 instance=ExtResource("3_0oesi")]
-visible = false
-position = Vector2(550, 380)
-scale = Vector2(2, 2)
-
-[node name="Plant_processmain12" parent="Plants" unique_id=131443499 instance=ExtResource("3_0oesi")]
-visible = false
-position = Vector2(650, 380)
-scale = Vector2(2, 2)
-
-[node name="Plant_processmain13" parent="Plants" unique_id=759797496 instance=ExtResource("3_0oesi")]
-visible = false
-position = Vector2(450, 480)
-scale = Vector2(2, 2)
-
-[node name="Plant_processmain14" parent="Plants" unique_id=500405573 instance=ExtResource("3_0oesi")]
-visible = false
-position = Vector2(550, 480)
-scale = Vector2(2, 2)
-
-[node name="Plant_processmain15" parent="Plants" unique_id=1712633006 instance=ExtResource("3_0oesi")]
-visible = false
-position = Vector2(650, 480)
-scale = Vector2(2, 2)
-
-[node name="Plant_processmain16" parent="Plants" unique_id=816389038 instance=ExtResource("3_0oesi")]
-visible = false
-position = Vector2(350, 480)
-scale = Vector2(2, 2)
-
-[node name="Bulldoze" type="Node2D" parent="." unique_id=1815154233]
-script = ExtResource("6_6u266")
-
-[node name="Beehives" type="Node2D" parent="." unique_id=140736181]
+[node name="Beehives" type="Node2D" parent="MiniGames" unique_id=140736181]
 visibility_layer = 4
-position = Vector2(603, 95)
 script = ExtResource("12_n47kk")
 hive_texture = ExtResource("13_3vkrt")
+
+[node name="Bulldoze" type="Node2D" parent="MiniGames" unique_id=1815154233]
+script = ExtResource("6_6u266")
+
+[node name="Fertilizer" type="Node2D" parent="MiniGames" unique_id=1520021401]
+script = ExtResource("9_vqmb7")
+
+[node name="Herbicide" type="Node2D" parent="MiniGames" unique_id=306349072]
+script = ExtResource("10_rk6my")
+
+[node name="Compost" type="Node2D" parent="MiniGames" unique_id=633114107]
+script = ExtResource("11_7invp")
+
+[node name="Natives" type="Node2D" parent="MiniGames" unique_id=514360904]
+script = ExtResource("12_5bvyl")
+
+[node name="Planting" type="Node2D" parent="MiniGames" unique_id=1522788783]
+script = ExtResource("13_5bvyl")
+
+[node name="Money_ui" type="CanvasLayer" parent="." unique_id=695818184]
+script = ExtResource("9_3vkrt")
 
 [node name="SeasonFX" type="Node2D" parent="." unique_id=636690689]
 script = ExtResource("7_wy5id")
@@ -219,10 +208,11 @@ script = ExtResource("7_2ncie")
 [node name="Score" parent="." unique_id=1550124422 instance=ExtResource("8_q8ng3")]
 visible = false
 z_index = 16
-offset_left = 946.0
-offset_top = 619.0
-offset_right = 946.0
-offset_bottom = 619.0
+offset_left = 900.0
+offset_top = 550.0
+offset_right = 900.0
+offset_bottom = 550.0
+scale = Vector2(0.8, 0.8)
 
 [node name="HiveSpots" type="Node2D" parent="." unique_id=834080901]
 position = Vector2(477, 61)
@@ -268,3 +258,25 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HiveSpots/Area2D5" unique_id=16424415]
 z_index = 1
 shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="Tip_images" type="Node" parent="." unique_id=205163689]
+
+[node name="Tip_Chem" type="Sprite2D" parent="Tip_images" unique_id=1558731876]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("15_nu721")
+
+[node name="Tip_trees" type="Sprite2D" parent="Tip_images" unique_id=379636958]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_vqmb7")
+
+[node name="Tip_soil" type="Sprite2D" parent="Tip_images" unique_id=1128106516]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_rk6my")
+
+[node name="Tip_poll" type="Sprite2D" parent="Tip_images" unique_id=1273133404]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_sv1ke")
